@@ -3,6 +3,7 @@
 // Fecha de Creacion: 24/08/2024 - 04:00 pm
 // Ultima modificacion: 24/08/2024 - 04:50 pm
 
+// Main
 fun main() {
     println("¡Bienvenido a la calculadora en Kotlin!")
     while (true) {
@@ -21,6 +22,7 @@ fun main() {
     }
 }
 
+// Funcion para seleccionar la operacion matematica
 fun seleccionarOperacion(): Int {
     while (true) {
         println("Selecciona una operación:")
@@ -40,7 +42,7 @@ fun seleccionarOperacion(): Int {
     }
 }
 
-
+// Funcion para ingresar los numeros
 fun obtenerNumero(mensaje: String): Double {
     println(mensaje)
     val numero = readLine()?.toDoubleOrNull()
@@ -53,12 +55,14 @@ fun obtenerNumero(mensaje: String): Double {
     return numero
 }
 
+// Funcion para efectuar la operacion seleccionada
 fun realizarOperacion(operacion: Int, num1: Double, num2: Double): Double {
     return when (operacion) {
         1 -> suma(num1, num2)
         2 -> resta(num1, num2)
         3 -> multiplicacion(num1, num2)
         4 -> {
+            // Verificacion si el divisor es 0
             if (num2 == 0.0) {
                 println("Error: No se puede dividir por cero.")
                 0.0
@@ -69,6 +73,8 @@ fun realizarOperacion(operacion: Int, num1: Double, num2: Double): Double {
         else -> 0.0
     }
 }
+
+// Funciones para cada operacion matematica
 
 fun suma(a: Double, b: Double): Double {
     return a + b
