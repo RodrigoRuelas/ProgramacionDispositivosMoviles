@@ -3,6 +3,7 @@
 // Fecha de Creacion: 24/08/2024 - 9:09 am
 // Ultima modificacion: 24/08/2024 - 9:49 am
 
+// Main
 fun main(args: Array<String>) {
     var Puntuacion_E : Int = 8
     var Salario_E : Double = 10000.00
@@ -15,6 +16,7 @@ fun main(args: Array<String>) {
     print(Hallar_Dinero(Puntuacion_E, Salario_E))
 }
 
+// Funcion para hallar el nivel del empleado
 fun Hallar_Nivel(punt : Int) : Unit {
     when (punt) {
         in 0..3 -> println("Inaceptable")
@@ -24,6 +26,7 @@ fun Hallar_Nivel(punt : Int) : Unit {
     }
 }
 
+// Funcion para hallar el dinero ganado
 fun Hallar_Dinero(punt : Int, sal : Double) : Unit {
     val Dinero : Double = sal * (punt/10.0)
     println(Dinero)
