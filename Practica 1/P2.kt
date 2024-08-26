@@ -3,8 +3,10 @@
 // Fecha de Creacion: 24/08/2024 - 10:30 am
 // Ultima modificacion: 24/08/2024 - 11:02 am
 
+// Importacion para utilizar las variables random
 import kotlin.random.Random
 
+// Funcion para seleccionar la opcion
 fun obtenerOpcion(opcion: Int): String {
     return when (opcion) {
         1 -> "Piedra"
@@ -14,6 +16,7 @@ fun obtenerOpcion(opcion: Int): String {
     }
 }
 
+// Funcion del desarrollo del juego
 fun determinarGanador(jugador: Int, computadora: Int): Int {
     return when {
         jugador == computadora -> 0 // Empate
@@ -24,6 +27,7 @@ fun determinarGanador(jugador: Int, computadora: Int): Int {
     }
 }
 
+// Main
 fun main() {
     println("Bienvenido al juego de Piedra, Papel o Tijera!")
     println("Elige una opción:\n1. Piedra\n2. Papel\n3. Tijera")
@@ -35,13 +39,16 @@ fun main() {
         return
     }
 
+    // Seleccion random del contrincante
     val computadora = Random.nextInt(1, 4)
 
     println("Tú elegiste: ${obtenerOpcion(jugador)}")
     println("La computadora eligió: ${obtenerOpcion(computadora)}")
 
+    // Desarrollo del juego
     val resultado = determinarGanador(jugador, computadora)
 
+    // Resultados de la ronda
     when (resultado) {
         0 -> println("¡Es un empate!")
         1 -> println("¡Ganaste!")
