@@ -3,6 +3,10 @@
 // Fecha de Creacion: 31/08/2024 - 8:02 pm
 // Ultima modificacion: 31/08/2024 - 0:00 pm
 
+class Producto(private var precio: Double, private var descuento: Double) {
+
+}  
+
 fun main() {
-  println("Hola mundo")
+  val producto = Producto(150.0, 10.0)
 }  
