@@ -19,17 +19,59 @@ abstract class Shape {
 
 // Subclase Cuadrado
 class Cuadrado(private val lado: Double) : Shape() {
+    // Indicando propiedades de la clase abstracta
+    override val area: Double
+        get() = calcularArea()
 
+    override val perimetro: Double
+        get() = calcularPerimetro()
+
+    // Indicando metodos de la clase abstracta
+    override fun calcularArea(): Double {
+        return lado * lado
+    }
+
+    override fun calcularPerimetro(): Double {
+        return 4 * lado
+    }
 }
 
 // Subclase Círculo
 class Circulo(private val radio: Double) : Shape() {
+    // Indicando propiedades de la clase abstracta
+    override val area: Double
+        get() = calcularArea()
 
+    override val perimetro: Double
+        get() = calcularPerimetro()
+
+    // Indicando metodos de la clase abstracta
+    override fun calcularArea(): Double {
+        return Math.PI * radio * radio
+    }
+
+    override fun calcularPerimetro(): Double {
+        return 2 * Math.PI * radio
+    }
 }
 
 // Subclase Rectángulo
 class Rectangulo(private val largo: Double, private val ancho: Double) : Shape() {
+    // Indicando propiedades de la clase abstracta
+    override val area: Double
+        get() = calcularArea()
 
+    override val perimetro: Double
+        get() = calcularPerimetro()
+
+    // Indicando metodos de la clase abstracta
+    override fun calcularArea(): Double {
+        return largo * ancho
+    }
+
+    override fun calcularPerimetro(): Double {
+        return 2 * (largo + ancho)
+    }
 }
 
 fun main() {
