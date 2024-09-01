@@ -31,8 +31,23 @@ class Producto(private var precio: Double, private var descuento: Double) {
             println("El descuento debe estar entre 0% y 100%.")
         }
     }
+
+    // Método para calcular el precio final después de aplicar el descuento
+    fun calcularPrecioFinal(): Double {
+        val descuentoAplicado = precio * (descuento / 100)
+        return precio - descuentoAplicado
+    }
 }  
 
 fun main() {
     val producto = Producto(150.0, 10.0)
+
+    // Imprimir precio inicial
+    println("Precio inicial: ${producto.getPrecio()}")
+
+    // Imprimir descuento inicial
+    println("Descuento inicial: ${producto.getDescuento()}%")
+
+    // Calcular y mostrar el precio final
+    println("Precio final después de descuento: ${producto.calcularPrecioFinal()}")
 }  
