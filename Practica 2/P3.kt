@@ -5,7 +5,16 @@
 
 // Clase abstracta Shape
 abstract class Shape {
+    abstract val area: Double
+    abstract val perimetro: Double
 
+    abstract fun calcularArea(): Double
+    abstract fun calcularPerimetro(): Double
+
+    fun imprimirResultados() {
+        println("Área: $area")
+        println("Perímetro: $perimetro")
+    }
 }
 
 // Subclase Cuadrado
