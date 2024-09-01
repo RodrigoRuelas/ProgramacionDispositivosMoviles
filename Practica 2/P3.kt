@@ -1,7 +1,7 @@
 // Pregunta 3: Creando un programa para determinar area y perimetro de figuras geometricas
 // De: Rodrigo Alonso Ruelas Lope
 // Fecha de Creacion: 31/08/2024 - 8:23 pm
-// Ultima modificacion: 31/08/2024 - 0:00 pm
+// Ultima modificacion: 31/08/2024 - 8:56 pm
 
 // Clase abstracta Shape
 abstract class Shape {
@@ -75,5 +75,20 @@ class Rectangulo(private val largo: Double, private val ancho: Double) : Shape()
 }
 
 fun main() {
-  println("Hola mundo")
+    // Crear instancias de las subclases
+    val cuadrado = Cuadrado(4.0)
+    val circulo = Circulo(3.0)
+    val rectangulo = Rectangulo(5.0, 3.0)
+
+    // Imprimir resultados para Cuadrado
+    println("Cuadrado:")
+    cuadrado.imprimirResultados()
+
+    // Imprimir resultados para Círculo
+    println("\nCírculo:")
+    circulo.imprimirResultados()
+
+    // Imprimir resultados para Rectángulo
+    println("\nRectángulo:")
+    rectangulo.imprimirResultados()
 }  
