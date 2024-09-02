@@ -1,7 +1,7 @@
 // Pregunta 4: Sistema de Gestion de Biblioteca
 // De: Rodrigo Alonso Ruelas Lope
 // Fecha de Creacion: 1/09/2024 - 10:50 pm
-// Ultima modificacion: 1/08/2024 - 0:00 pm
+// Ultima modificacion: 1/08/2024 - 10:40 pm
 
 // Clase abstracta Material
 abstract class Material(
@@ -123,4 +123,39 @@ class Biblioteca : IBiblioteca {
     }
 }
 
-fun main() {}
+fun main() {
+    val biblioteca = Biblioteca()
+
+    // Crear algunos materiales
+    val libro1 = Libro("1984", "George Orwell", 1949, "Distopía", 328)
+    val revista1 = Revista("National Geographic", "Varios Autores", 2021, "0027-9358", 300, 12, "National Geographic Society")
+
+    // Registrar materiales en la biblioteca
+    biblioteca.registrarMaterial(libro1)
+    biblioteca.registrarMaterial(revista1)
+
+    // Crear y registrar un usuario
+    val usuario1 = Usuario("Juan", "Pérez", 30)
+    biblioteca.registrarUsuario(usuario1)
+
+    // Mostrar materiales disponibles
+    biblioteca.mostrarMaterialesDisponibles()
+
+    // Prestar un material
+    biblioteca.prestarMaterial(usuario1, libro1)
+
+    // Mostrar materiales disponibles después del préstamo
+    biblioteca.mostrarMaterialesDisponibles()
+
+    // Mostrar materiales reservados por el usuario
+    biblioteca.mostrarMaterialesReservadosPorUsuario(usuario1)
+
+    // Devolver un material
+    biblioteca.devolverMaterial(usuario1, libro1)
+
+    // Mostrar materiales disponibles después de la devolución
+    biblioteca.mostrarMaterialesDisponibles()
+
+    // Mostrar materiales reservados por el usuario después de la devolución
+    biblioteca.mostrarMaterialesReservadosPorUsuario(usuario1)
+}
