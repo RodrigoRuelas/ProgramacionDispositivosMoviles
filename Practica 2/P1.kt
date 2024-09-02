@@ -1,7 +1,9 @@
 // Pregunta 1: Creando una cuenta bancaria
 // De: Rodrigo Alonso Ruelas Lope
 // Fecha de Creacion: 31/08/2024 - 6:43 pm
-// Ultima modificacion: 31/08/2024 - 7:00 pm
+// Ultima modificacion: 1/09/2024 - 11:55 pm
+
+import java.util.Scanner
 
 class CuentaBancaria(private var saldo: Double, private var limiteRetiro: Double) {
     // Método getter para obtener el saldo
@@ -43,24 +45,62 @@ class CuentaBancaria(private var saldo: Double, private var limiteRetiro: Double
             println("Retiro realizado. Nuevo saldo: $saldo")
         }
     }
+
+    // Método para realizar un depósito
+    fun depositar(monto: Double) {
+        if (monto > 0) {
+            saldo += monto
+            println("Depósito realizado. Nuevo saldo: $saldo")
+        } else {
+            println("El monto del depósito debe ser positivo.")
+        }
+    }
+
+    // Método para mostrar el estado de la cuenta
+    fun mostrarEstadoCuenta() {
+        println("Estado de la cuenta:")
+        println("Saldo: $saldo")
+        println("Límite de retiro: $limiteRetiro")
+    }
 }  
 
 fun main() {
     val cuenta = CuentaBancaria(1000.0, 500.0)
+    val scanner = Scanner(System.`in`)
 
-    // Imprimir saldo inicial
-    println("Saldo inicial: ${cuenta.getSaldo()}")
+    while (true) {
+        println("\n--- Menú de Cuenta Bancaria ---")
+        println("1. Ver estado de la cuenta")
+        println("2. Realizar un depósito")
+        println("3. Realizar un retiro")
+        println("4. Establecer un nuevo límite de retiro")
+        println("5. Salir")
+        print("Seleccione una opción: ")
 
-    // Intentar retirar un monto mayor al límite
-    cuenta.retirar(600.0)
+        when (scanner.nextInt()) {
+            1 -> cuenta.mostrarEstadoCuenta()
+            2 -> {
+                print("Ingrese el monto a depositar: ")
+                val montoDeposito = scanner.nextDouble()
+                cuenta.depositar(montoDeposito)
+            }
+            3 -> {
+                print("Ingrese el monto a retirar: ")
+                val montoRetiro = scanner.nextDouble()
+                cuenta.retirar(montoRetiro)
+            }
+            4 -> {
+                print("Ingrese el nuevo límite de retiro: ")
+                val nuevoLimite = scanner.nextDouble()
+                cuenta.setLimiteRetiro(nuevoLimite)
+            }
+            5 -> {
+                println("Cerrando")
+                break
+            }
+            else -> println("Opción no válida. Por favor, intente de nuevo.")
+        }
+    }
 
-    // Intentar retirar un monto válido
-    cuenta.retirar(300.0)
-
-    // Intentar establecer un saldo negativo
-    cuenta.setSaldo(-100.0)
-
-    // Establecer un nuevo límite de retiro y realizar un retiro
-    cuenta.setLimiteRetiro(1000.0)
-    cuenta.retirar(800.0)
+    scanner.close()
 }  
