@@ -4,7 +4,13 @@
 // Ultima modificacion: 1/08/2024 - 0:00 pm
 
 // Clase abstracta Material
-abstract class Material()
+abstract class Material(
+   val titulo: String,
+    val autor: String,
+    val anioPublicacion: Int
+) {
+    abstract fun mostrarDetalles()
+}
 
 // Subclase Libro
 class Libro()
