@@ -70,6 +70,57 @@ interface IBiblioteca {
 }
 
 // Clase Biblioteca que implementa IBiblioteca
-class Biblioteca : IBiblioteca {}
+class Biblioteca : IBiblioteca {
+    private val materialesDisponibles = mutableListOf<Material>()
+    private val usuarios = mutableMapOf<Usuario, MutableList<Material>>()
+
+    override fun registrarMaterial(material: Material) {
+        materialesDisponibles.add(material)
+        println("Material registrado: ${material.titulo}")
+    }
+
+    override fun registrarUsuario(usuario: Usuario) {
+        if (usuario !in usuarios) {
+            usuarios[usuario] = mutableListOf()
+            println("Usuario registrado: ${usuario.nombre} ${usuario.apellido}")
+        } else {
+            println("El usuario ya está registrado.")
+        }
+    }
+
+    override fun prestarMaterial(usuario: Usuario, material: Material): Boolean {
+        return if (material in materialesDisponibles) {
+            materialesDisponibles.remove(material)
+            usuarios[usuario]?.add(material)
+            println("Material prestado: ${material.titulo} a ${usuario.nombre} ${usuario.apellido}")
+            true
+        } else {
+            println("El material no está disponible.")
+            false
+        }
+    }
+
+    override fun devolverMaterial(usuario: Usuario, material: Material): Boolean {
+        return if (usuarios[usuario]?.contains(material) == true) {
+            usuarios[usuario]?.remove(material)
+            materialesDisponibles.add(material)
+            println("Material devuelto: ${material.titulo} por ${usuario.nombre} ${usuario.apellido}")
+            true
+        } else {
+            println("El usuario no tiene este material en préstamo.")
+            false
+        }
+    }
+
+    override fun mostrarMaterialesDisponibles() {
+        println("Materiales disponibles:")
+        materialesDisponibles.forEach { it.mostrarDetalles() }
+    }
+
+    override fun mostrarMaterialesReservadosPorUsuario(usuario: Usuario) {
+        println("Materiales reservados por ${usuario.nombre} ${usuario.apellido}:")
+        usuarios[usuario]?.forEach { it.mostrarDetalles() } ?: println("No tiene materiales reservados.")
+    }
+}
 
 fun main() {}
