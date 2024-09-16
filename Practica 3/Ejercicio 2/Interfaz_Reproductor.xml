@@ -21,4 +21,28 @@
         android:textSize="20sp"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reproducir"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/pauseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pausar"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detener"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
