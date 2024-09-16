@@ -10,4 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:spinnerMode="dropdown" />
+
+    <Button
+    android:id="@+id/nextButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Siguiente"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="20dp" />
 </LinearLayout>
