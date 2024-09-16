@@ -5,4 +5,20 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:gravity="center">
+
+    <ImageView
+        android:id="@+id/audioImageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/audio_placeholder" />
+
+    <TextView
+        android:id="@+id/audioNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del Audio"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal" />
 </LinearLayout>
