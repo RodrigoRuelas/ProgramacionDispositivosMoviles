@@ -1,2 +1,3 @@
 Practica 4.
-Se adajunta los archivos con los codigos.
+Los archivos son del ejercicio 2.
+Para ello, se debe ingresar audio mp3 a la carpeta layout/drawable
